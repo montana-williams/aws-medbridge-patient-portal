@@ -7,3 +7,9 @@ module "vpc" {
     private_subnet_1_cidr = var.private_subnet_1_cidr
     private_subnet_2_cidr = var.private_subnet_2_cidr
 }
+
+module "security" {
+    source = "./modules/security"
+
+    vpc_id = module.vpc.vpc_id
+}
